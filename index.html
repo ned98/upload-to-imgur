@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload thing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="drop-region">
+            <div id="drop-zone" class="drop-zone">
+                <input type="file" id="drop-zone-file-input" name="files[]" accept="image/*">
+                <p class="drop-zone-text">Drop images here</p>
+            </div>
+        </div>
+
+        <div class="upload-region">
+            <form method="POST" class="form">
+                <label id="label-choose-img" for="file-input">
+                    <p class="choose-img-text">Choose an Image</p>
+                    <input type="file" id="file-input" name="img" accept="image/*">
+                </label>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-bg">
+        <div class="modal-box">
+            <form>
+                <div class="modal-body">
+
+                    <div class="modal-box-title">
+                        <p>Edit image</p>
+                    </div>
+
+                    <div class="modal-form">
+
+                        <div class="image-preview">
+                            <img id="img" src="">
+                        </div>
+
+                        <div class="input-label">
+                            <label for="form-title">Title</label>
+                            <span class="optional">optional</span>
+                            <input type="text" id="form-title" class="text-input" placeholder="Give your post a title"
+                                maxlength="100">
+                        </div>
+
+                        <div class="input-label">
+                            <label for="form-description">Description </label>
+                            <span class="optional">optional</span>
+                            <textarea type="text" id="form-description" class="text-input"
+                                placeholder="Brief description of this image" maxlength="200"></textarea>
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn btn-submit-image" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
