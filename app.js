@@ -44,7 +44,7 @@ dropZone.on('drop', function (e) {
         fetch('https://api.imgur.com/3/image', {
             method: 'POST',
             headers: {
-                Authorization: 'Client-ID xxxxxxxxxxx',
+                Authorization: 'Client-ID a42863129543066',
             },
             body: formData
         })
@@ -107,7 +107,7 @@ $("#file-input").change(function (e) {
         fetch('https://api.imgur.com/3/image', {
             method: 'POST',
             headers: {
-                Authorization: 'Client-ID xxxxxxxxxxx',
+                Authorization: 'Client-ID a42863129543066',
             },
             body: formData
         })
