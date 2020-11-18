@@ -44,7 +44,7 @@ dropZone.on('drop', function (e) {
         fetch('https://api.imgur.com/3/image', {
             method: 'POST',
             headers: {
-                Authorization: 'Client-ID a42863129543066',
+                Authorization: 'Client-ID f1a273e66909554',
             },
             body: formData
         })
@@ -73,10 +73,15 @@ dropZone.on('drop', function (e) {
                     text: 'Something went wrong!',
                     icon: 'error',
                     confirmButtonText: 'Okay'
-                })
+                }).then(function (result) {
+                    if (result.value) { location.reload(); }
+                });
+
                 console.error("Error: ", error);
             });
     });
+    $("#form-title").val();
+    $("#form-description").val();
 });
 
 $("#file-input").change(function (e) {
@@ -107,7 +112,7 @@ $("#file-input").change(function (e) {
         fetch('https://api.imgur.com/3/image', {
             method: 'POST',
             headers: {
-                Authorization: 'Client-ID a42863129543066',
+                Authorization: 'Client-ID f1a273e66909554',
             },
             body: formData
         })
@@ -126,7 +131,10 @@ $("#file-input").change(function (e) {
                         customClass: { confirmButton: "btn btn-okay" },
                         confirmButtonColor: '#44c767',
                         confirmButtonText: 'Okay'
+                    }).then(function (result) {
+                        if (result.value) { location.reload(); }
                     });
+
                 } else {
                     throw new Error("Status: " + result.status);
                 }
@@ -140,4 +148,6 @@ $("#file-input").change(function (e) {
                 console.error('Error: ', error);
             });
     });
+    $("#form-title").val();
+    $("#form-description").val();
 });
