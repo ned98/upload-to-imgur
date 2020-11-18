@@ -21,7 +21,7 @@ dropZone.on('drop', function (e) {
     var droppedFile = e.originalEvent.dataTransfer.files[0];
 
     $(".modal-bg").css('visibility', 'visible').addClass('active');
-    img.attr('src', droppedFile).css('border-radius', '6px').width(427).height(391);
+    img.css({ 'border-radius': '6px', 'width': '100%', 'height': '100%' });
 
     var reader = new FileReader();
     const formData = new FormData();
@@ -85,7 +85,7 @@ $("#file-input").change(function (e) {
     var selectedFile = e.target.files[0];
     var reader = new FileReader();
 
-    img = $("#img").css('border-radius', '6px').width(427).height(391);
+    img.css({ 'border-radius': '6px', 'width': '100%', 'height': '100%' });
     const formData = new FormData();
 
     reader.onload = function (ev) {
