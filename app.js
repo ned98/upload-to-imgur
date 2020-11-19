@@ -2,7 +2,8 @@ var log = console.log;
 var dropZone = $("#drop-zone");
 var img = $("#img");
 var btnSubmit = $(".btn-submit-image");
-
+var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+const maxFileSize = 10485760; // 10 MB
 
 dropZone.bind({
     dragover: function (e) {
@@ -19,6 +20,16 @@ dropZone.on('drop', function (e) {
     e.stopPropagation();
     e.preventDefault();
     var droppedFile = e.originalEvent.dataTransfer.files[0];
+    var fileType = droppedFile.type;
+    var fileSize = droppedFile.size;
+
+    if (checkFileType(fileType) == false) {
+        return false;
+    }
+
+    if (checkFileSize(fileSize, maxFileSize) == false) {
+        return false;
+    };
 
     $(".modal-bg").css('visibility', 'visible').addClass('active');
     img.css({ 'border-radius': '6px', 'width': '100%', 'height': '100%' });
@@ -63,7 +74,11 @@ dropZone.on('drop', function (e) {
                         customClass: { confirmButton: "btn btn-okay" },
                         confirmButtonColor: '#44c767',
                         confirmButtonText: 'Okay'
-                    });
+                    })
+                        .then(function (result) {
+                            if (result.value) { location.reload(); }
+                        });
+
                 } else {
                     throw new Error("Status: " + result.status);
                 }
@@ -73,9 +88,7 @@ dropZone.on('drop', function (e) {
                     text: 'Something went wrong!',
                     icon: 'error',
                     confirmButtonText: 'Okay'
-                }).then(function (result) {
-                    if (result.value) { location.reload(); }
-                });
+                })
 
                 console.error("Error: ", error);
             });
@@ -85,9 +98,20 @@ dropZone.on('drop', function (e) {
 });
 
 $("#file-input").change(function (e) {
+    var selectedFile = e.target.files[0];
+    var fileType = selectedFile['type'];
+    var fileSize = selectedFile.size;
+
+    if (checkFileType(fileType) == false) {
+        return false;
+    }
+
+    if (checkFileSize(fileSize, maxFileSize) == false) {
+        return false;
+    };
+
     $(".modal-bg").css('visibility', 'visible').addClass('active');
 
-    var selectedFile = e.target.files[0];
     var reader = new FileReader();
 
     img.css({ 'border-radius': '6px', 'width': '100%', 'height': '100%' });
@@ -131,9 +155,10 @@ $("#file-input").change(function (e) {
                         customClass: { confirmButton: "btn btn-okay" },
                         confirmButtonColor: '#44c767',
                         confirmButtonText: 'Okay'
-                    }).then(function (result) {
-                        if (result.value) { location.reload(); }
-                    });
+                    })
+                        .then(function (result) {
+                            if (result.value) { location.reload(); }
+                        });
 
                 } else {
                     throw new Error("Status: " + result.status);
@@ -151,3 +176,29 @@ $("#file-input").change(function (e) {
     $("#form-title").val();
     $("#form-description").val();
 });
+
+function checkFileType(fileType) {
+    if (!validImageTypes.includes(fileType)) {
+        Swal.fire({
+            title: 'Oops...',
+            text: "Sorry, you can't upload that file type.",
+            icon: 'error',
+            confirmButtonText: 'Okay'
+        });
+        return false;
+    }
+};
+
+function checkFileSize(fileSize, maxFileSize) {
+    var res = true;
+    if (fileSize > maxFileSize) {
+        Swal.fire({
+            title: 'Oops...',
+            text: "File is too big. (Max 10 MB)",
+            icon: 'error',
+            confirmButtonText: 'Okay'
+        });
+        res = false;
+    }
+    return res;
+};
