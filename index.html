@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload thing</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -32,13 +32,13 @@
         </div>
     </div>
 
-    <div class="modal-bg">
-        <div class="modal-box">
+    <div class="modal">
+        <div class="modal-content">
             <form>
                 <div class="modal-body">
 
-                    <div class="modal-box-title">
-                        <p>Edit image</p>
+                    <div class="modal-content-title">
+                        <p>Edit Image</p>
                     </div>
 
                     <div class="modal-form">
@@ -60,15 +60,16 @@
                             <textarea type="text" id="form-description" class="text-input"
                                 placeholder="Brief description of this image" maxlength="200"></textarea>
                         </div>
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn btn-submit-image" type="submit">Submit</button>
+                        <div class="btn-container">
+                            <button class="btn btn-submit-image" type="submit">Submit</button>
+                        </div>
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
+
+
     <script src="app.js"></script>
     <script src="sweetalert2.all.min.js"></script>
 

@@ -24,7 +24,7 @@ body {
     margin: 0 auto;
     margin-top: 30px;
     width: 25% !important;
-    transition: width 0.6s 0s ease, all 0.5s 0s ease;
+    /* transition: width 0.6s 0s ease, all 0.5s 0s ease; */
     height: 600px;
 }
 
@@ -46,7 +46,7 @@ body {
     background-size: 40px 40px;
     transition: all 0.2s ease 0s;
     background-repeat: no-repeat;
-    overflow: auto;    
+    overflow: auto;
     text-align: center;
     width: 330px;
     border-radius: 6px;
@@ -63,10 +63,18 @@ body {
 }
 
 .drop-zone-text {
-    margin-top: 90px;    
+    font-size: 18px;
+    margin-top: 90px;
+}
+
+#img {
+    width: 100%;
+    height: auto;
 }
 
 #label-choose-img {
+    font-size: 18px;
+    color: #fff;
     transition: opacity .3s,border .5s;
     cursor: pointer;
     display: flex;
@@ -122,35 +130,36 @@ body {
 
 
 /* MODAL BOX - IMAGE INFO */
-.modal-bg {
+.modal {
     visibility: hidden;
     display: flex;
     position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.383);
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: rgba(0, 0, 0, 0.383) !important;
 }
 
-.modal-bg:active {
+.modal:active {
     visibility: visible;
     opacity: 1;
     transition: 0.5s;
 }
 
-.modal-box {
+.modal-content {
     border-radius: 6px !important;
     background-color: #41464E !important;
     margin: 0 auto !important;
     margin-top: 30px !important;
     width: 25% !important;
-    height: 800px !important;
+    height: 790px !important;
+    /* max-height: 800px; */
     color: #ffffff !important;
     padding: 10px;
 }
 
-.modal-box-title {
+.modal-content-title {
     width: 99%;
     border-bottom: 1px solid #E5E5E5;
     margin-bottom: 20px;
@@ -158,8 +167,7 @@ body {
 
 .image-preview {
     margin-top: 20px;
-    margin-bottom: 20px;
-    height: 40vh;
+    height: 400px;
 }
 
 .optional {
@@ -177,7 +185,7 @@ body {
 }
 
 .input-label {
-    margin-top: 20px;
+    /* margin-top: 10px; */
     margin-bottom: 15px;
 }
 
@@ -246,17 +254,17 @@ textarea {resize: none !important;}
 @media (max-width: 958px) {
     .container {
         width: 50% !important;
-        transition: width 0.6s 0s ease, all 0.5s 0s ease;
+        /* transition: width 0.6s 0s ease, all 0.5s 0s ease; */
     }
 
     .drop-zone {
         width: 80%;
     }
 
-    .modal-box {
-        margin-top: 50px !important;
+    .modal-content {
+        margin-top: 30px !important;
         width: 50% !important;
-        height: 707px !important;
+        height: 800px !important;
     }
 }
 
@@ -265,17 +273,17 @@ and (min-width: 480px)
 and (max-width: 768px) {
     .container {
         width: 70% !important;
-        transition: width 0.6s 0s ease, all 0.5s 0s ease;
+        /* transition: width 0.6s 0s ease, all 0.5s 0s ease; */
     }
 
     .drop-zone {
         width: 80% !important;
     }
 
-    .modal-box {
-        margin-top: 50px !important;
-        width: 50% !important;
-        height: 707px !important;
+    .modal-content {
+        margin-top: 30px !important;
+        width: 70% !important;
+        height: 790px !important;
     }
 }
 
@@ -284,16 +292,16 @@ and (min-width : 320px)
 and (max-width : 480px) {
     .container {
         width: 85% !important;
-        transition: width 0.6s 0s ease, all 0.5s 0s ease;
+        /* transition: width 0.6s 0s ease, all 0.5s 0s ease; */
     }
 
     .drop-zone {
         width: 80% !important;
     }
 
-    .modal-box {
+    .modal-content {
         margin-top: 30px !important;
         width: 85% !important;
-        height: 80% !important;
+        height: 790px !important;
     }
 }

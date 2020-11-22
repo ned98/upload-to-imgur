@@ -31,7 +31,7 @@ dropZone.on('drop', function (e) {
         return false;
     };
 
-    $(".modal-bg").css('visibility', 'visible').addClass('active');
+    $(".modal").css('visibility', 'visible').addClass('active');
     img.css({ 'border-radius': '6px', 'width': '100%', 'height': '100%' });
 
     var reader = new FileReader();
@@ -63,7 +63,7 @@ dropZone.on('drop', function (e) {
             .then(result => {
 
                 if (result.status == 200) {
-                    $(".modal-bg").removeClass('active').css('visibility', 'hidden');
+                    $(".modal").removeClass('active').css('visibility', 'hidden');
 
                     Swal.fire({
                         title: 'Success!',
@@ -110,11 +110,11 @@ $("#file-input").change(function (e) {
         return false;
     };
 
-    $(".modal-bg").css('visibility', 'visible').addClass('active');
+    $(".modal").css('visibility', 'visible').addClass('active');
 
     var reader = new FileReader();
 
-    img.css({ 'border-radius': '6px', 'width': '100%', 'height': '100%' });
+    img.css({ 'border-radius': '6px', 'width': '99%', 'height': '90%' });
     const formData = new FormData();
 
     reader.onload = function (ev) {
@@ -144,7 +144,7 @@ $("#file-input").change(function (e) {
             .then(result => {
 
                 if (result.status == 200) {
-                    $(".modal-bg").removeClass('active').css('visibility', 'hidden');
+                    $(".modal").removeClass('active').css('visibility', 'hidden');
 
                     Swal.fire({
                         title: 'Success!',
